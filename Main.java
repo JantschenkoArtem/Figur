@@ -6,11 +6,44 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
 //        System.out.println(FigureGenerator.generateFigures());
-        List<Figure>list= FigureGenerator.generateFigures();
+        List<Figure> list = FigureGenerator.generateFigures();
+        System.out.println("всех кругов заданного цвета в списке фигур: " + FigureTasks.countCirclesOfColor(list, Color.RED));
+        System.out.println(" ");
+        System.out.println("прямоугольник с максимальной площадью: " +
+                FigureTasks.findRectangleWithMaxArea(list));
+        System.out.println(" ");
+        FigureTasks.printEquilateralTriangles(list);
+        System.out.println(" ");
+
+        System.out.println("Сумма радиусов всех " + Color.BLACK + " кругов: " +
+                FigureTasks.sumOfRadiiForColor(list, Color.BLACK));
         System.out.println(" ");
         System.out.println(FigureTasks.hasRectangleAndTriangleOfSameColor(list));
+        FigureTasks.hasRectangleAndTriangleOfSameColor(list);
         System.out.println(" ");
+
+        System.out.println("круг с минимальным радиусом среди кругов" + Color.BLACK + " цвета: " +
+                FigureTasks.findCircleWithMinRadiusOfColor(list, Color.BLACK));
+        System.out.println(" ");
+
+        int value = 50;
+        System.out.println("треугольников, у которых хотя бы одна сторона больше " + value + ">> " +
+                FigureTasks.countTrianglesWithSideGreaterThan(list, 50));
+
+        System.out.println(" ");
+        System.out.println("круги, у которых радиус равен любой из сторон любого треугольника." +
+                FigureTasks.findCirclesWithRadiusEqualToTriangleSide(list));
+
+        System.out.println(" ");
+        System.out.println("треугольник, у которого разница между максимальной и" +
+                " минимальной сторонами минимальна среди всех треугольников: " +
+                FigureTasks.findTriangleWithSmallestSideDifference(list));
+
+        System.out.println(" ");
+        FigureTasks.printFiguresWithAtLeastOneMatchingParameter(list);
+
     }
 
 
@@ -18,13 +51,10 @@ public class Main {
 
 @ToString
 class Figure {
-
-
 }
 
 @ToString
 @Getter
-
 class Rectangle extends Figure {
 
     private Color color;
@@ -63,7 +93,6 @@ class Rectangle extends Figure {
 }
 
 @ToString
-
 @Getter
 class Triangle extends Figure {
     private Color color;
@@ -109,12 +138,35 @@ class Triangle extends Figure {
     public void setC(int c) {
         this.c = c;
     }
-}
 
+    public int minSide() {
+        int min = 0;
+        if (getA() < getB() && getA() < getC()) {
+            min = getA();
+        } else if (getB() < getA() && getB() < getC()) {
+            min = getB();
+        } else {
+            min = getC();
+        }
+        return min;
+    }
+
+    public int maxSide() {
+        int max = 0;
+        if (getA() > getB() && getA() > getC()) {
+            max = getA();
+        } else if (getB() > getA() && getB() > getC()) {
+            max = getB();
+        } else {
+            max = getC();
+        }
+        return max;
+
+    }
+}
 
 @ToString
 @Getter
-
 class Circle extends Figure {
 
     private Color color;
@@ -144,5 +196,6 @@ class Circle extends Figure {
 
 @ToString
 enum Color {
-    RED, BLACK, WHITE, BLUE, GREEN, YELLOW, ORANGE, PINK, PURPLE, MULTICOLOR
+    RED, BLACK, WHITE, BLUE, GREEN, YELLOW, ORANGE, PINK, PURPLE, MULTICOLOR;
+
 }
