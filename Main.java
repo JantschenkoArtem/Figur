@@ -51,6 +51,7 @@ public class Main {
 
 @ToString
 class Figure {
+
 }
 
 @ToString

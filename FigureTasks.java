@@ -214,42 +214,42 @@ public class FigureTasks {
      * (цвет, радиус, сторона) совпадает с аналогичным параметром другой фигуры.
      */
     public static void printFiguresWithAtLeastOneMatchingParameter(List<Figure> figures) {
-//        for (Figure figure:figures){
-//            if (figure instanceof Circle){
-//                Circle circle=(Circle) figure;
-//                for (Figure figure1:figures){
-//                    if (figure1 instanceof Triangle){
-//                        Triangle triangle=(Triangle) figure;
-//                        for (Figure figure2:figures){
-//                            if (figure2 instanceof Rectangle){
-//                                Rectangle rectangle=(Rectangle) figure;
-//                                if (circle.getColor().equals(rectangle.getColor())||circle.getColor().equals(triangle.getColor())){
-//                                    System.out.println(circle + " AND " + rectangle );
-//                                }else if (rectangle.getColor().equals(triangle.getColor())||rectangle.getA()==triangle.getA()
-//                                ||rectangle.getA()==triangle.getB()||rectangle.getA()==triangle.getC()){
-//                                    System.out.println(rectangle + "AND " + triangle);
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        for (int i = 0; i < figures.size(); i++) {
-            Figure figure1 = figures.get(i);
-            for (int j = i + 1; j < figures.size(); j++) {
-                Figure figure2 = figures.get(j);
-                if (figure1.getColor().equals(figure2.getColor()) ||
-                        (figure1 instanceof Circle && figure2 instanceof Circle &&
-                                ((Circle) figure1).getRadius().equals(((Circle) figure2).getRadius())) ||
-                        (figure1 instanceof Triangle && figure2 instanceof Triangle &&
-                                ((Triangle) figure1).getA().equals(((Triangle) figure2).getA())) ||
-                        (figure1 instanceof Rectangle && figure2 instanceof Rectangle &&
-                                ((Rectangle) figure1).getA().equals(((Rectangle) figure2).getA()))) {
-                    System.out.println(figure1 + " AND " + figure2);
+        for (Figure figure:figures){
+            if (figure instanceof Circle){
+                Circle circle=(Circle) figure;
+                for (Figure figure1:figures){
+                    if (figure1 instanceof Triangle){
+                        Triangle triangle=(Triangle) figure;
+                        for (Figure figure2:figures){
+                            if (figure2 instanceof Rectangle){
+                                Rectangle rectangle=(Rectangle) figure;
+                                if (circle.getColor().equals(rectangle.getColor())||circle.getColor().equals(triangle.getColor())){
+                                    System.out.println(circle + " AND " + rectangle );
+                                }else if (rectangle.getColor().equals(triangle.getColor())||rectangle.getA()==triangle.getA()
+                                ||rectangle.getA()==triangle.getB()||rectangle.getA()==triangle.getC()){
+                                    System.out.println(rectangle + "AND " + triangle);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
+//        for (int i = 0; i < figures.size(); i++) {
+//            Figure figure1 = figures.get(i);
+//            for (int j = i + 1; j < figures.size(); j++) {
+//                Figure figure2 = figures.get(j);
+//                if (figure1.getColor().equals(figure2.getColor())||
+//                        (figure1 instanceof Circle && figure2 instanceof Circle &&
+//                                ((Circle) figure1).getRadius().equals(((Circle) figure2).getRadius())) ||
+//                        (figure1 instanceof Triangle && figure2 instanceof Triangle &&
+//                                ((Triangle) figure1).getA().equals(((Triangle) figure2).getA())) ||
+//                        (figure1 instanceof Rectangle && figure2 instanceof Rectangle &&
+//                                ((Rectangle) figure1).getA().equals(((Rectangle) figure2).getA()))) {
+//                    System.out.println(figure1 + " AND " + figure2);
+//                }
+//            }
+//        }
     }
 
     // Helper method to determine if two figures have at least one matching parameter
