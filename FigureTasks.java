@@ -100,27 +100,7 @@ public class FigureTasks {
             }
         }
         return false;
-        /**
-         *   Triangle t = null;
-         *         Rectangle r = null;
-         *         for (Figure figure : figures) {
-         *
-         *             if (figure instanceof Rectangle) {
-         *                 r = (Rectangle) figure;
-         *                 for (Figure figure1 : figures) {
-         *                     if (figure1 instanceof Triangle) {
-         *                         if (((Triangle) figure1).getColor() == r.getColor()) {
-         *                         } else {
-         *                             System.out.println("Not Element");
-         *                         }
-         *                     }
-         *                     System.out.println(r);
-         *                 }
-         *                 continue;
-         *             }
-         *         }
-         *         return true;
-         */
+
     }
     // ****************** Intermediate Tasks ******************
 
@@ -235,21 +215,7 @@ public class FigureTasks {
                 }
             }
         }
-//        for (int i = 0; i < figures.size(); i++) {
-//            Figure figure1 = figures.get(i);
-//            for (int j = i + 1; j < figures.size(); j++) {
-//                Figure figure2 = figures.get(j);
-//                if (figure1.getColor().equals(figure2.getColor())||
-//                        (figure1 instanceof Circle && figure2 instanceof Circle &&
-//                                ((Circle) figure1).getRadius().equals(((Circle) figure2).getRadius())) ||
-//                        (figure1 instanceof Triangle && figure2 instanceof Triangle &&
-//                                ((Triangle) figure1).getA().equals(((Triangle) figure2).getA())) ||
-//                        (figure1 instanceof Rectangle && figure2 instanceof Rectangle &&
-//                                ((Rectangle) figure1).getA().equals(((Rectangle) figure2).getA()))) {
-//                    System.out.println(figure1 + " AND " + figure2);
-//                }
-//            }
-//        }
+
     }
 
     // Helper method to determine if two figures have at least one matching parameter
