@@ -43,6 +43,11 @@ public class Main {
 
         System.out.println(" ");
         FigureTasks.printFiguresWithAtLeastOneMatchingParameter(list);
+        System.out.println();
+        FigureTasks.findCirclesWithRadiusGreaterThanSumOfAnyTriangleSides(list);
+        System.out.println();
+
+
 
     }
 
@@ -51,7 +56,6 @@ public class Main {
 
 @ToString
 class Figure {
-
 }
 
 @ToString

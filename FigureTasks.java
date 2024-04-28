@@ -61,6 +61,7 @@ public class FigureTasks {
             }
         }
     }
+
     public static boolean isEquilateral(Triangle triangle) {
         return triangle.getA() == triangle.getB() && triangle.getB() == triangle.getC();
     }
@@ -91,7 +92,7 @@ public class FigureTasks {
                     if (figure2 instanceof Triangle) {
                         Triangle triangle = (Triangle) figure2;
                         if (((Rectangle) figure1).getColor().equals(((Triangle) figure2).getColor())) {
-                            System.out.println("списке фигур прямоугольник и треугольник одинакового цвета: " +
+                            System.out.println("B списке фигур прямоугольник и треугольник одинакового цвета: " +
                                     rectangle + " " + triangle);
                             return true;
                         }
@@ -171,22 +172,23 @@ public class FigureTasks {
      * максимальной и минимальной сторонами минимальна среди всех треугольников.
      */
     public static Triangle findTriangleWithSmallestSideDifference(List<Figure> figures) {
-      Triangle minDiffTriangle=null;
-      int minDiff=Integer.MAX_VALUE;
+        Triangle minDiffTriangle = null;
+        int minDiff = Integer.MAX_VALUE;
         for (Figure figure : figures) {
             if (figure instanceof Triangle) {
                 Triangle triangle = (Triangle) figure;
                 int diff = sideDifference(triangle);
-                if (diff<minDiff){
-                    minDiff=diff;
-                    minDiffTriangle=triangle;
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    minDiffTriangle = triangle;
                 }
             }
         }
         return minDiffTriangle;
     }
-    public static int sideDifference(Triangle triangle){
-        return triangle.maxSide()-triangle.minSide();
+
+    public static int sideDifference(Triangle triangle) {
+        return triangle.maxSide() - triangle.minSide();
     }
 
     /**
@@ -194,19 +196,19 @@ public class FigureTasks {
      * (цвет, радиус, сторона) совпадает с аналогичным параметром другой фигуры.
      */
     public static void printFiguresWithAtLeastOneMatchingParameter(List<Figure> figures) {
-        for (Figure figure:figures){
-            if (figure instanceof Circle){
-                Circle circle=(Circle) figure;
-                for (Figure figure1:figures){
-                    if (figure1 instanceof Triangle){
-                        Triangle triangle=(Triangle) figure;
-                        for (Figure figure2:figures){
-                            if (figure2 instanceof Rectangle){
-                                Rectangle rectangle=(Rectangle) figure;
-                                if (circle.getColor().equals(rectangle.getColor())||circle.getColor().equals(triangle.getColor())){
-                                    System.out.println(circle + " AND " + rectangle );
-                                }else if (rectangle.getColor().equals(triangle.getColor())||rectangle.getA()==triangle.getA()
-                                ||rectangle.getA()==triangle.getB()||rectangle.getA()==triangle.getC()){
+        for (Figure figure : figures) {
+            if (figure instanceof Circle) {
+                Circle circle = (Circle) figure;
+                for (Figure figure1 : figures) {
+                    if (figure1 instanceof Triangle) {
+                        Triangle triangle = (Triangle) figure1;
+                        for (Figure figure2 : figures) {
+                            if (figure2 instanceof Rectangle) {
+                                Rectangle rectangle = (Rectangle) figure2;
+                                if (circle.getColor().equals(rectangle.getColor()) || circle.getColor().equals(triangle.getColor())) {
+                                    System.out.println(circle + " AND " + rectangle);
+                                } else if (rectangle.getColor().equals(triangle.getColor()) || rectangle.getA() == triangle.getA()
+                                        || rectangle.getA() == triangle.getB() || rectangle.getA() == triangle.getC()) {
                                     System.out.println(rectangle + "AND " + triangle);
                                 }
                             }
@@ -215,6 +217,7 @@ public class FigureTasks {
                 }
             }
         }
+        System.out.println( "Всего совподений : " + figures.size());
 
     }
 
@@ -226,9 +229,25 @@ public class FigureTasks {
     /**
      * 13. Напишите метод для нахождения кругов, у которых радиус больше суммы сторон любого треугольника в списке.
      */
-    public static List<Circle> findCirclesWithRadiusGreaterThanSumOfAnyTriangleSides(List<Figure> figures) {
+    public static void findCirclesWithRadiusGreaterThanSumOfAnyTriangleSides(List<Figure> figures) {
+        for (Figure circleFigure:figures){
+            if(circleFigure instanceof Circle){
+             Circle circle=(Circle) circleFigure;
+                for (Figure triangleFigure : figures){
+                    if (triangleFigure instanceof Triangle){
+                        Triangle triangle=(Triangle) triangleFigure;
+                        if (((Circle) circleFigure).getRadius()>sumOfSide(triangle)){
+                      }
+                    }
+                }
+            }
+            System.out.println("круг, у которых радиус больше суммы сторон любого треугольника в списке: " + circleFigure);
+        }
+    }
 
-        return null;
+    public static int sumOfSide(Triangle triangle) {
+        int sumSides = triangle.getA() + triangle.getB() + triangle.getC();
+        return sumSides;
     }
 
     // ****************** Advanced Tasks ******************
